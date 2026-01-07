@@ -1,0 +1,48 @@
+steps:
+  # Step 1: Build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'asia-south1-docker.pkg.dev/b21-forge/b21-liquidalloy-app/${_APP}-service:$BUILD_ID'
+      - '-f'
+      - 'Dockerfile'
+      - '.'
+    dir: 'project'
+
+  # Step 2: Push Docker image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-south1-docker.pkg.dev/b21-forge/b21-company-website/${_APP}-service:$BUILD_ID'
+
+  # Step 3: SSH into VM and deploy the Docker container
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Connecting to VM and deploying ${_APP} container..."
+        gcloud compute ssh b21-qa-monitor \
+          --zone=asia-south1-a \
+          --project=b21-forge \
+          --command="
+            echo 'Pulling latest image...'
+            sudo docker pull asia-south1-docker.pkg.dev/b21-forge/b21-company-website/${_APP}-service:$BUILD_ID &&
+            echo 'Stopping and removing existing container if present...'
+            sudo docker rm -f b21-${_APP} || true &&
+            echo 'Starting new container...'
+            sudo docker run -d --name b21-${_APP} -p 8083:8083 \
+              asia-south1-docker.pkg.dev/b21-forge/b21-company-website/${_APP}-service:$BUILD_ID &&
+            echo 'Cleaning up unused Docker resources...'
+            sudo docker system prune -af
+          "
+
+images:
+  - 'asia-south1-docker.pkg.dev/b21-forge/b21-company-website/${_APP}-service:$BUILD_ID'
+
+substitutions:
+  _APP: 'company-website'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
