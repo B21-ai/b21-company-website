@@ -4,7 +4,7 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'asia-south1-docker.pkg.dev/b21-forge/b21-liquidalloy-app/${_APP}-service:$BUILD_ID'
+      - 'asia-south1-docker.pkg.dev/b21-forge/b21-company-website/${_APP}-service:$BUILD_ID'
       - '-f'
       - 'Dockerfile'
       - '.'
@@ -42,7 +42,7 @@ images:
   - 'asia-south1-docker.pkg.dev/b21-forge/b21-company-website/${_APP}-service:$BUILD_ID'
 
 substitutions:
-  _APP: 'company-website'
+  _APP: 'b21-company-website'
 
 options:
   logging: CLOUD_LOGGING_ONLY
