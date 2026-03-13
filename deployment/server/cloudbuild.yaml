@@ -23,7 +23,7 @@ steps:
       - '-c'
       - |
         echo "Connecting to VM and deploying ${_APP} container..."
-        gcloud compute ssh b21-qa-monitor \
+        gcloud compute ssh b21-monitor-qa \
           --zone=asia-south1-a \
           --project=b21-forge \
           --command="
