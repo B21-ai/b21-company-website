@@ -24,7 +24,7 @@ steps:
       - |
         echo "Connecting to VM and deploying ${_APP} container..."
         gcloud compute ssh b21-monitor-qa \
-          --zone=asia-south1-a \
+          --zone=asia-south1-b \
           --project=b21-forge \
           --command="
             echo 'Pulling latest image...'
