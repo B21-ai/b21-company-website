@@ -6,14 +6,16 @@ const Hero = () => {
       <div className="wrap hero-in">
         <div className="eyebrow">LiquidAlloy · Live today</div>
         <h1>
-          SMB AI Growth. <span className="fwd">From opaque to transparent.</span>
+          SMB AI Growth.
+          <br />
+          <span className="fwd">From opaque to transparent.</span>
         </h1>
         <p className="hero-sub">
-          LiquidAlloy is B21's goal-first agentic foundation. LiquidBronze runs on
-          it to discover your ideal customers, track product-market fit, and grow
-          your sales pipeline autonomously. Every action creates insight and feeds
-          FLO, the opportunity model that shows you exactly how things are right
-          now.
+          <strong>LiquidAlloy</strong> is <strong>B21</strong>'s goal-first agentic
+          foundation. <strong>LiquidBronze</strong> runs on it to discover your ideal
+          customers, track product-market fit, and grow your sales pipeline
+          autonomously. Every action creates insight and feeds <strong>FLO</strong>,
+          the opportunity model that shows you exactly how things are right now.
         </p>
         <div className="hero-actions">
           <a href="#get-started" className="btn btn-primary">

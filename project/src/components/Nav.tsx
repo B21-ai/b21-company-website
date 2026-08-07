@@ -6,7 +6,7 @@ const Nav = () => {
       <div className="wrap nav-in">
         <a href="#" className="logo">
           <img src={logo} alt="B21" />
-          B21
+        
         </a>
         <div className="nav-links">
           <a href="#offer">LiquidBronze</a>

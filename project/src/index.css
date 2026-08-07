@@ -81,10 +81,7 @@ nav{
 
 /* ---------- HERO ---------- */
 .hero{
-  background:
-    radial-gradient(900px 460px at 78% 8%, rgba(139,140,240,.10), transparent 62%),
-    radial-gradient(760px 420px at 10% 92%, rgba(18,184,134,.08), transparent 60%),
-    var(--paper);
+  background:#FFF8E1;
   color:var(--ink);padding:88px 0 0;position:relative;overflow:hidden;
 }
 .hero::after{
@@ -94,11 +91,30 @@ nav{
   background-size:64px 64px;
   mask-image:radial-gradient(1000px 500px at 50% 0%,#000,transparent 78%);
 }
-.hero-in{position:relative;z-index:1}
-.hero h1{font-size:clamp(38px,5.4vw,62px);color:var(--ink);margin:20px 0 0;max-width:17ch}
+.hero-in{position:relative;z-index:1;text-align:justify}
+.hero-in .eyebrow{justify-content:center}
+.hero h1{font-size:clamp(32px,4.8vw,56px);color:var(--ink);margin:20px auto 0;max-width:none;text-align:center}
 .hero h1 .fwd{color:var(--signal)}
-.hero-sub{margin-top:22px;max-width:58ch;font-size:17.5px;line-height:1.62;color:var(--muted)}
-.hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-sub{margin:22px auto 0;max-width:58ch;font-size:18px;line-height:1.72;color:var(--muted);text-align:justify}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;justify-content:center}
+.hero-actions .btn{padding:14px 26px;font-size:15px;border-radius:10px}
+.hero-actions .btn-primary{
+  background:var(--ink);color:#fff;
+  box-shadow:0 10px 26px rgba(16,26,51,.22);
+}
+.hero-actions .btn-primary:hover{
+  background:#232D42;transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(16,26,51,.28);
+}
+.hero-actions .btn-ghost{
+  background:#fff;color:var(--ink);border:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(16,26,51,.05);
+}
+.hero-actions .btn-ghost:hover{
+  border-color:var(--ink);transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(16,26,51,.10);
+}
 
 /* ---------- SIGNATURE: FLO HORIZON ---------- */
 .horizon{
