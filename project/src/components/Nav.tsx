@@ -1,30 +1,73 @@
-import logo from "../assets/b21-logo.png";
+import { Corners } from "../ui";
 
-const Nav = () => {
+const link = { color: "var(--color-text)" } as const;
+
+const Nav = ({
+  dark,
+  onToggleTheme,
+}: {
+  dark: boolean;
+  onToggleTheme: () => void;
+}) => {
   return (
-    <nav>
-      <div className="wrap nav-in">
-        <a href="#" className="logo">
-          <img src={logo} alt="B21" />
-        
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 10,
+        background: "color-mix(in srgb,var(--color-bg) 88%,transparent)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid var(--color-divider)",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: "14px 24px",
+          display: "flex",
+          alignItems: "center",
+          gap: 32,
+          flexWrap: "wrap",
+        }}
+      >
+        <a
+          href="#top"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            color: "var(--color-text)",
+            fontFamily: "var(--font-heading)",
+            fontWeight: 600,
+            fontSize: 24,
+          }}
+        >
+          <span style={{ width: 14, height: 14, background: "var(--color-accent)" }} />
+          B21
         </a>
-        <div className="nav-links">
-          <a href="#offer">LiquidBronze</a>
-          <a href="#foundation">LiquidAlloy</a>
-          <a href="#apps">Applications</a>
-          <a href="#roadmap">Roadmap</a>
-          <a href="#trust">Trust</a>
-        </div>
-        <div className="nav-cta">
-          <a href="#get-started" className="btn btn-primary">
+        <nav style={{ display: "flex", gap: 24, fontSize: 15, flex: 1, flexWrap: "wrap" }}>
+          <a href="#bronze" style={link}>LiquidBronze</a>
+          <a href="#alloy" style={link}>LiquidAlloy</a>
+          <a href="#phases" style={link}>FLO</a>
+          <a href="#roadmap" style={link}>Roadmap</a>
+          <a href="#trust" style={link}>Trust</a>
+        </nav>
+        <div style={{ display: "flex", gap: 8 }}>
+          <button className="btn btn-ghost" onClick={onToggleTheme}>
+            {dark ? "☀ Light" : "☾ Dark"}
+          </button>
+          <a
+            className="btn btn-primary blueprint"
+            href="#start"
+            style={{ color: "var(--color-bg)" }}
+          >
             Get early access
-            <svg className="arrow" width="13" height="13" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Corners />
           </a>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
