@@ -1,69 +1,85 @@
+import { wrap } from "../ui";
+
+const POINTS = [
+  {
+    lead: "SMBs",
+    rest: " get LiquidBronze — growth software that pays for itself, and a transparent view of exactly how the business is progressing.",
+  },
+  {
+    lead: "Banks and fintechs",
+    rest: " get LiquidSteel — a forward-looking growth signal no bureau can produce, so they can see who to fund.",
+  },
+  {
+    lead: "B21 compounds",
+    rest: " — every action on LiquidAlloy strengthens the signal, and the moat, for everyone downstream.",
+  },
+];
+
 const WhyNow = () => {
   return (
-    <section className="pad whynow">
-      <div className="wrap">
-        <div className="eyebrow">Why B21, why now</div>
-        <h2>
-          The wedge is software.
-          <br />
-          <span className="g">The moat is the signal.</span>
-        </h2>
-
-        <div className="whynow-body">
-          <div className="why-list">
-            <div className="why-row">
-              <div className="wic">
-                <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M9 1L3 9h4l-1 6 6-8H8l1-6z"
-                    stroke="#12B886"
-                    strokeWidth="1.4"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <p>
-                <b>SMBs</b> get LiquidBronze — growth software that pays for
-                itself, and a transparent view of exactly how the business is
-                progressing.
-              </p>
-            </div>
-            <div className="why-row">
-              <div className="wic">
-                <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M2 13l4-5 3 3 5-7"
-                    stroke="#12B886"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <p>
-                <b>Banks and fintechs</b> get LiquidSteel — a forward-looking
-                growth signal no bureau can produce, so they can see who to fund.
-              </p>
-            </div>
-            <div className="why-row">
-              <div className="wic">
-                <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="6" stroke="#8B8CF0" strokeWidth="1.4" />
-                  <path d="M8 4v4l3 2" stroke="#8B8CF0" strokeWidth="1.4" strokeLinecap="round" />
-                </svg>
-              </div>
-              <p>
-                <b>B21 compounds</b> — every action on LiquidAlloy strengthens the
-                signal, and the moat, for everyone downstream.
-              </p>
-            </div>
-          </div>
-
-          <div className="why-callout">
-            Join us in turning <b>opaque growth</b> into a signal fintechs can
-            finally trust.
-          </div>
+    <section style={{ background: "var(--color-accent-900)", color: "#f2f2f3" }}>
+      <div style={{ ...wrap, display: "flex", flexDirection: "column", gap: 48 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <span
+            style={{
+              fontFamily: "var(--font-heading)",
+              fontWeight: 600,
+              fontSize: 13,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#b5d9fd",
+            }}
+          >
+            Why B21, why now
+          </span>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: "clamp(44px,7vw,96px)",
+              lineHeight: 0.9,
+              color: "#f2f2f3",
+            }}
+          >
+            The wedge is software.
+            <br />
+            <span style={{ color: "#94bce3" }}>The moat is the signal.</span>
+          </h2>
         </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,280px),1fr))",
+            gap: 32,
+          }}
+        >
+          {POINTS.map((p) => (
+            <p
+              key={p.lead}
+              style={{
+                margin: 0,
+                paddingTop: 16,
+                borderTop: "1px solid #94bce3",
+                color: "#d4d4d7",
+              }}
+            >
+              <strong style={{ color: "#fff" }}>{p.lead}</strong>
+              {p.rest}
+            </p>
+          ))}
+        </div>
+
+        <p
+          style={{
+            margin: 0,
+            fontFamily: "var(--font-heading)",
+            fontWeight: 600,
+            fontSize: "clamp(22px,2.4vw,30px)",
+          }}
+        >
+          Join us in turning <span style={{ color: "#94bce3" }}>opaque growth</span> into
+          a signal fintechs can finally trust.
+        </p>
       </div>
     </section>
   );

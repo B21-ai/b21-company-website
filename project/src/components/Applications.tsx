@@ -1,17 +1,15 @@
-import { useState } from "react";
+import type { HeroTab } from "../App";
+import { COS } from "../data/flo";
+import { Corners, fieldLabel, kicker, muted, wrap } from "../ui";
 
-const Check = () => (
-  <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-    <path
-      d="M3 8.5l3.2 3.2L13 5"
-      stroke="#12B886"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+const BRONZE_POINTS = [
+  "Predefined goals rooted in Blue Ocean Strategy fine-tune the offering and surface uncontested customers and markets",
+  "One scrollable feed — one action, one piece of evidence per card, built for an owner with five minutes",
+  "Promos are dynamic — drafted and priced by the agent, not the owner",
+  "Full visibility into the profit and revenue impact of every promo before it goes out",
+];
 
+// How a FLO score is built — the signal's path from pipeline to credit decision.
 const FLO_STEPS = [
   {
     n: "01",
@@ -36,153 +34,276 @@ const FLO_STEPS = [
   },
 ];
 
-const Applications = () => {
-  const [tab, setTab] = useState<"growth" | "flo">("growth");
+const cardFoot = {
+  marginTop: "auto",
+  paddingTop: 8,
+  display: "flex",
+  alignItems: "center",
+  gap: 20,
+  flexWrap: "wrap" as const,
+};
 
+const inlineLink = {
+  fontFamily: "var(--font-heading)",
+  fontWeight: 600,
+  fontSize: 17,
+};
+
+const Applications = ({ onTab }: { onTab: (t: HeroTab) => void }) => {
   return (
-    <section className="pad" id="apps">
-      <div className="wrap">
-        <div className="sec-head">
-          <div className="eyebrow">LiquidBronze &amp; FLO</div>
-          <h2>One platform. Two phases. Growth, and the credit to fund it.</h2>
-          <p>
+    <section id="phases" style={{ borderTop: "1px solid var(--color-divider)" }}>
+      <div style={{ ...wrap, display: "flex", flexDirection: "column", gap: 48 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            gap: 14,
+          }}
+        >
+          <span style={kicker}>LiquidBronze &amp; FLO</span>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: "clamp(40px,5.5vw,72px)",
+              lineHeight: 0.95,
+              maxWidth: 920,
+              textWrap: "balance",
+            }}
+          >
+            One platform. Two phases. Growth, and the credit to fund it.
+          </h2>
+          <p style={{ margin: 0, fontSize: 17, maxWidth: 760, color: muted(72) }}>
             LiquidBronze runs on predefined goals rooted in Blue Ocean Strategy —
-            nudging a business toward the right offer, customer and market. Every
-            action taken strengthens the same pipeline and AR signal that FLO turns
-            into a forward-looking opportunity score for LiquidSteel.
+            nudging a business toward the right offer, customer and market. Every action
+            taken strengthens the same pipeline and AR signal that FLO turns into a
+            forward-looking opportunity score for LiquidSteel.
           </p>
         </div>
 
-        <div className="tabs" role="tablist">
-          <button
-            className={"tab" + (tab === "growth" ? " active" : "")}
-            role="tab"
-            aria-selected={tab === "growth"}
-            onClick={() => setTab("growth")}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,420px),1fr))",
+            gap: 16,
+          }}
+        >
+          <div
+            className="blueprint"
+            style={{
+              padding: "clamp(24px,3vw,40px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+            }}
           >
-            LiquidBronze
-          </button>
-          <button
-            className={"tab" + (tab === "flo" ? " active" : "")}
-            role="tab"
-            aria-selected={tab === "flo"}
-            onClick={() => setTab("flo")}
+            <Corners />
+            <span style={kicker}>LiquidBronze · Phase 1</span>
+            <h3 style={{ margin: 0, fontSize: 36, lineHeight: 1 }}>
+              A scrollable feed, not a dashboard.
+            </h3>
+            <p style={{ margin: 0, color: muted(72) }}>
+              After onboarding, an intuitive feed delivers the actions a business can
+              take right now — reach a new market, adjust an offer for a new customer —
+              each one grounded in a predefined goal from Blue Ocean Strategy.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", fontSize: 15 }}>
+              {BRONZE_POINTS.map((p) => (
+                <div
+                  key={p}
+                  style={{
+                    display: "flex",
+                    gap: 12,
+                    padding: "12px 0",
+                    borderTop: "1px solid var(--color-divider)",
+                  }}
+                >
+                  <span style={{ color: "var(--color-accent)" }}>+</span>
+                  {p}
+                </div>
+              ))}
+            </div>
+
+            <div style={cardFoot}>
+              <a href="#top" onClick={() => onTab("feed")} style={inlineLink}>
+                Try the feed above →
+              </a>
+            </div>
+          </div>
+
+          <div
+            className="blueprint"
+            style={{
+              padding: "clamp(24px,3vw,40px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+            }}
           >
-            FLO
-          </button>
+            <Corners />
+            <span style={kicker}>FLO · Phase 1</span>
+            <h3 style={{ margin: 0, fontSize: 36, lineHeight: 1 }}>
+              Forward-looking opportunity, scored.
+            </h3>
+            <p style={{ margin: 0, color: muted(72) }}>
+              FLO's forward-looking opportunity model projects demand 180 and 360 days
+              out from pipeline and AR evidence — surfaced to banks and fintechs through
+              LiquidSteel.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {COS.map((c) => (
+                <div
+                  key={c.name}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr minmax(80px,140px) 48px",
+                    gap: 12,
+                    alignItems: "center",
+                    padding: "12px 0",
+                    borderTop: "1px solid var(--color-divider)",
+                    fontSize: 15,
+                  }}
+                >
+                  <span>{c.name}</span>
+                  <span
+                    style={{
+                      display: "block",
+                      height: 6,
+                      border: "1px solid var(--color-divider)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: "block",
+                        height: "100%",
+                        width: (c.horizon / 360) * 100 + "%",
+                        background: "var(--color-accent)",
+                      }}
+                    />
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontWeight: 600,
+                      textAlign: "right",
+                    }}
+                  >
+                    {c.horizon}d
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div style={cardFoot}>
+              <a
+                className="btn btn-primary blueprint"
+                href="#start"
+                style={{ padding: "12px 20px", fontSize: 16, color: "var(--color-bg)" }}
+              >
+                Get early access
+                <Corners />
+              </a>
+              <a href="#top" onClick={() => onTab("flo")} style={inlineLink}>
+                Explore FLO scores above →
+              </a>
+            </div>
+          </div>
         </div>
 
-        {tab === "growth" && (
-          <div className="panel active" role="tabpanel">
-            <div>
-              <span className="badge">LiquidBronze · Phase 1</span>
-              <h3>A scrollable feed, not a dashboard.</h3>
-              <p>
-                After onboarding, an intuitive feed delivers the actions a business
-                can take right now — reach a new market, adjust an offer for a new
-                customer — each one grounded in a predefined goal from Blue Ocean
-                Strategy.
-              </p>
-              <ul className="flist">
-                <li>
-                  <Check /> Predefined goals rooted in Blue Ocean Strategy fine-tune
-                  the offering and surface uncontested customers and markets
-                </li>
-                <li>
-                  <Check /> One scrollable feed — one action, one piece of evidence
-                  per card, built for an owner with five minutes
-                </li>
-                <li>
-                  <Check /> Promos are dynamic — drafted and priced by the agent,
-                  not the owner
-                </li>
-                <li>
-                  <Check /> Full visibility into the profit and revenue impact of
-                  every promo before it goes out
-                </li>
-              </ul>
-              <a href="#get-started" className="btn btn-dark">
-                See it on your pipeline
-              </a>
-            </div>
-
-            <div className="phone">
-              <div className="phone-head">
-                <span className="phone-brand">LiquidBronze</span>
-                <span className="phone-dot" />
-              </div>
-              <div className="phone-card">
-                <div className="pk">New segment</div>
-                <h4>Property managers rebook you 3× more.</h4>
-                <div className="sub">12 of your last 40 jobs.</div>
-                <div className="phone-cta">Send intro offer</div>
-              </div>
-              <div className="phone-card">
-                <div className="pk">Promo impact · dynamic</div>
-                <h4 style={{ marginBottom: 10 }}>10% off, first job — 3 months</h4>
-                <div className="hz-meta" style={{ margin: 0, padding: "12px 0 0", borderTop: "1px solid var(--line-dark)", borderBottom: "none" }}>
-                  <div>
-                    <div className="k">Revenue</div>
-                    <div className="v g" style={{ fontSize: 15 }}>+$1,240</div>
-                  </div>
-                  <div>
-                    <div className="k">Margin</div>
-                    <div className="v" style={{ fontSize: 15 }}>-1.8pt</div>
-                  </div>
-                  <div>
-                    <div className="k">Net profit</div>
-                    <div className="v g" style={{ fontSize: 15 }}>+$860</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 24,
+            paddingTop: 48,
+            borderTop: "1px solid var(--color-divider)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "baseline",
+              gap: "8px 32px",
+              flexWrap: "wrap",
+            }}
+          >
+            <span style={kicker}>How a FLO score gets built</span>
+            <span style={{ fontSize: 15, color: muted(62) }}>
+              Pipeline → AR → projection → credit decision
+            </span>
           </div>
-        )}
 
-        {tab === "flo" && (
-          <div className="panel active" role="tabpanel">
-            <div>
-              <span className="badge partner">FLO · Phase 1, B2B</span>
-              <h3>FLO projects demand 180 and 360 days out.</h3>
-              <p>
-                For B2B businesses, LiquidBronze's pipeline and AR evidence feed
-                FLO — projecting demand signals 180 and 360 days out. That signal
-                goes straight to LiquidSteel, where banks and fintechs see the
-                growth already happening.
-              </p>
-              <a href="#get-started" className="btn btn-dark">
-                Get early access
-              </a>
-            </div>
-
-            <div>
-              <div className="flo-steps">
-                {FLO_STEPS.map((s) => (
-                  <div className={"flo-step" + (s.last ? " last" : "")} key={s.n}>
-                    <div className="fn">{s.n}</div>
-                    <div className="ic">
-                      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                        <path
-                          d="M2 12l3.5-4.5L9 10l5-6.5"
-                          stroke="#8B8CF0"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <h4>{s.title}</h4>
-                    <p>{s.desc}</p>
-                  </div>
-                ))}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,240px),1fr))",
+              gap: 16,
+            }}
+          >
+            {FLO_STEPS.map((s) => (
+              <div
+                key={s.n}
+                className="blueprint"
+                style={{
+                  padding: 28,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 10,
+                  ...(s.last
+                    ? {
+                        borderColor: "var(--color-accent)",
+                        background: "color-mix(in srgb,var(--color-accent) 8%,transparent)",
+                      }
+                    : {}),
+                }}
+              >
+                <Corners />
+                <span
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontWeight: 600,
+                    fontSize: 15,
+                    color: "var(--color-accent-700)",
+                  }}
+                >
+                  {s.n}
+                </span>
+                <h4 style={{ margin: 0, fontSize: 24, lineHeight: 1.05 }}>{s.title}</h4>
+                <p style={{ margin: 0, fontSize: 14, color: muted(72) }}>{s.desc}</p>
               </div>
-              <div className="flo-note">
-                Every score traces back to the signals that produced it.{" "}
-                <b>Nothing is a black box.</b>
-              </div>
-            </div>
+            ))}
           </div>
-        )}
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              flexWrap: "wrap",
+              padding: "18px 24px",
+              border: "1px solid var(--color-accent)",
+              background: "color-mix(in srgb,var(--color-accent) 6%,transparent)",
+            }}
+          >
+            <span style={{ ...fieldLabel, color: "var(--color-accent-700)" }}>
+              Traceable
+            </span>
+            <span style={{ fontSize: 16 }}>
+              Every score traces back to the signals that produced it.{" "}
+              <strong
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  fontWeight: 600,
+                  fontSize: 19,
+                }}
+              >
+                Nothing is a black box.
+              </strong>
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );
