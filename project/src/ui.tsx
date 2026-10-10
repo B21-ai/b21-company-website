@@ -1,15 +1,5 @@
 import type { CSSProperties } from "react";
 
-/** The four registration marks every blueprint-framed element wears. */
-export const Corners = () => (
-  <>
-    <i className="corner tl" />
-    <i className="corner tr" />
-    <i className="corner bl" />
-    <i className="corner br" />
-  </>
-);
-
 /** Text at `pct` opacity against the current ground. */
 export const muted = (pct: number) =>
   `color-mix(in srgb,var(--color-text) ${pct}%,transparent)`;
