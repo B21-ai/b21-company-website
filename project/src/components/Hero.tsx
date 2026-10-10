@@ -54,7 +54,7 @@ const Hero = () => {
         >
           <a
             className="btn btn-primary"
-            href="#contact"
+            href="/contact"
             style={{
               fontSize: 17,
               padding: "14px 26px",

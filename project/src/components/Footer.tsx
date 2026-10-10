@@ -49,13 +49,13 @@ const Footer = () => {
           <div style={{ display: "flex", gap: "32px 72px", flexWrap: "wrap" }}>
             <div style={col}>
               <h6 style={{ margin: "0 0 4px" }}>Company</h6>
-              <a href="#about">About</a>
-              <a href="#contact">Contact</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
             </div>
             <div style={col}>
               <h6 style={{ margin: "0 0 4px" }}>Resources</h6>
-              <a href="#trust">Trust</a>
-              <a href="#contact">Get early access</a>
+              <a href="/#trust">Trust</a>
+              <a href="/contact">Get early access</a>
             </div>
           </div>
         </div>
