@@ -1,22 +1,13 @@
 import { useState } from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
-import Problem from "./components/Problem";
-import Offer from "./components/Offer";
-import Foundation from "./components/Foundation";
-import Applications from "./components/Applications";
-import Roadmap from "./components/Roadmap";
-import WhyNow from "./components/WhyNow";
 import Trust from "./components/Trust";
+import About from "./components/About";
 import Cta from "./components/Cta";
 import Footer from "./components/Footer";
 
-export type HeroTab = "flo" | "feed";
-
 function App() {
   const [dark, setDark] = useState(false);
-  const [tab, setTab] = useState<HeroTab>("flo");
 
   return (
     <div
@@ -32,15 +23,9 @@ function App() {
       }}
     >
       <Nav dark={dark} onToggleTheme={() => setDark((d) => !d)} />
-      <Hero tab={tab} onTab={setTab} />
-      <Stats />
-      <Problem />
-      <Offer />
-      <Foundation />
-      <Applications onTab={setTab} />
-      <Roadmap />
-      <WhyNow />
+      <Hero />
       <Trust />
+      <About />
       <Cta />
       <Footer />
     </div>

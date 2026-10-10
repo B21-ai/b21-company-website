@@ -1,5 +1,3 @@
-import { Corners } from "../ui";
-
 const link = { color: "var(--color-text)" } as const;
 
 const Nav = ({
@@ -43,27 +41,40 @@ const Nav = ({
             fontSize: 24,
           }}
         >
-          <span style={{ width: 14, height: 14, background: "var(--color-accent)" }} />
+          <span
+            style={{ width: 14, height: 14, background: "var(--color-accent)" }}
+          />
           B21
         </a>
-        <nav style={{ display: "flex", gap: 24, fontSize: 15, flex: 1, flexWrap: "wrap" }}>
-          <a href="#bronze" style={link}>LiquidBronze</a>
-          <a href="#alloy" style={link}>LiquidAlloy</a>
-          <a href="#phases" style={link}>FLO</a>
-          <a href="#roadmap" style={link}>Roadmap</a>
-          <a href="#trust" style={link}>Trust</a>
+        <nav
+          style={{
+            display: "flex",
+            gap: 24,
+            fontSize: 15,
+            flex: 1,
+            flexWrap: "wrap",
+          }}
+        >
+          <a href="#trust" style={link}>
+            Trust
+          </a>
+          <a href="#about" style={link}>
+            About
+          </a>
+          <a href="#contact" style={link}>
+            Contact
+          </a>
         </nav>
         <div style={{ display: "flex", gap: 8 }}>
           <button className="btn btn-ghost" onClick={onToggleTheme}>
             {dark ? "☀ Light" : "☾ Dark"}
           </button>
           <a
-            className="btn btn-primary blueprint"
-            href="#start"
+            className="btn btn-primary"
+            href="#contact"
             style={{ color: "var(--color-bg)" }}
           >
             Get early access
-            <Corners />
           </a>
         </div>
       </div>
