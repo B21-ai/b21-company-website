@@ -36,5 +36,10 @@ export const fieldLabel: CSSProperties = {
 export const wrap: CSSProperties = {
   maxWidth: 1200,
   margin: "0 auto",
-  padding: "clamp(72px,10vw,128px) 24px",
+  padding: "clamp(64px,7vw,100px) 24px",
+};
+
+/** Hairline rule that separates one section from the next. */
+export const sectionRule: CSSProperties = {
+  borderTop: "1px solid var(--color-divider)",
 };

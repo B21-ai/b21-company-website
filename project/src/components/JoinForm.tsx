@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Corners, muted } from "../ui";
+import { muted } from "../ui";
 
 const RECIPIENTS = "anil@b21.ai,rajesh@b21.ai";
 
@@ -13,7 +13,7 @@ const JoinForm = () => {
     e.preventDefault();
     const subject = encodeURIComponent("B21 early access request");
     const body = encodeURIComponent(
-      `Name: ${name}\nWork email: ${email}\nI'm a: ${role}`
+      `Name: ${name}\nWork email: ${email}\nI'm a: ${role}`,
     );
     window.location.href = `mailto:${RECIPIENTS}?subject=${subject}&body=${body}`;
     setDone(true);
@@ -30,7 +30,11 @@ const JoinForm = () => {
         }}
       >
         <span
-          style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 36 }}
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontWeight: 600,
+            fontSize: 36,
+          }}
         >
           You're on the list.
         </span>
@@ -89,11 +93,10 @@ const JoinForm = () => {
       </div>
       <button
         type="submit"
-        className="btn btn-primary blueprint"
+        className="btn btn-primary"
         style={{ padding: 14, fontSize: 17, marginTop: 6 }}
       >
         Request early access
-        <Corners />
       </button>
     </form>
   );

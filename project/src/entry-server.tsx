@@ -6,6 +6,6 @@ export function render() {
   return renderToString(
     <StrictMode>
       <App />
-    </StrictMode>
+    </StrictMode>,
   );
 }
