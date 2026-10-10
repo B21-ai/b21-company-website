@@ -13,18 +13,9 @@ const Hero = () => {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-          gap: 24,
+          gap: 28,
         }}
       >
-        <span
-          className="tag tag-outline"
-          style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
-        >
-          <span
-            style={{ width: 6, height: 6, background: "var(--color-accent)" }}
-          />
-          LiquidAlloy · Live today
-        </span>
         <h1
           style={{
             margin: 0,
@@ -47,15 +38,11 @@ const Hero = () => {
             textWrap: "pretty",
           }}
         >
-          <strong style={{ color: "var(--color-text)" }}>LiquidAlloy</strong> is{" "}
-          <strong style={{ color: "var(--color-text)" }}>B21</strong>'s
-          goal-first agentic foundation.{" "}
-          <strong style={{ color: "var(--color-text)" }}>LiquidBronze</strong>{" "}
-          runs on it to discover your ideal customers, track product-market fit,
-          and grow your sales pipeline autonomously. Every action creates
-          insight and feeds{" "}
-          <strong style={{ color: "var(--color-text)" }}>FLO</strong>, the
-          opportunity model that shows you exactly how things are right now.
+          <strong style={{ color: "var(--color-text)" }}>B21</strong> is a
+          goal-first agentic platform. It discovers your ideal customers, tracks
+          product-market fit, and grows your sales pipeline autonomously. Every
+          action creates insight and feeds the opportunity model that shows you
+          exactly how things are right now.
         </p>
         <div
           style={{

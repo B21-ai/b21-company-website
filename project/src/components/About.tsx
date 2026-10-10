@@ -171,7 +171,15 @@ const About = () => {
             borderTop: "1px solid var(--color-divider)",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              gap: 14,
+            }}
+          >
             <span style={kicker}>Why B21, why now</span>
             <h2
               style={{
@@ -219,6 +227,7 @@ const About = () => {
               fontWeight: 600,
               fontSize: "clamp(22px,2.4vw,30px)",
               lineHeight: 1.15,
+              textAlign: "center",
             }}
           >
             Join us in turning{" "}
