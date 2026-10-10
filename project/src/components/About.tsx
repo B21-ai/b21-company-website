@@ -1,4 +1,4 @@
-import { Corners, fieldLabel, kicker, muted, sectionRule, wrap } from "../ui";
+import { fieldLabel, kicker, muted, sectionRule, wrap } from "../ui";
 
 const STATS = [
   { n: "66%", l: "of SMBs struggle despite product-market fit" },
@@ -79,15 +79,14 @@ const About = () => {
           {STATS.map((s) => (
             <div
               key={s.n}
-              className="blueprint"
               style={{
+                border: "1px solid var(--color-divider)",
                 padding: 28,
                 display: "flex",
                 flexDirection: "column",
                 gap: 8,
               }}
             >
-              <Corners />
               <span
                 style={{
                   fontFamily: "var(--font-heading)",
@@ -103,15 +102,14 @@ const About = () => {
           ))}
 
           <div
-            className="blueprint"
             style={{
+              border: "1px solid var(--color-divider)",
               padding: 28,
               display: "flex",
               flexDirection: "column",
               gap: 10,
             }}
           >
-            <Corners />
             <span style={fieldLabel}>Today: backward-looking risk</span>
             <span
               style={{
@@ -132,16 +130,14 @@ const About = () => {
           </div>
 
           <div
-            className="blueprint"
             style={{
+              border: "1px solid var(--color-accent)",
               padding: 28,
               display: "flex",
               flexDirection: "column",
               gap: 10,
-              borderColor: "var(--color-accent)",
             }}
           >
-            <Corners />
             <span style={{ ...fieldLabel, color: "var(--color-accent-700)" }}>
               With B21: forward-looking opportunity
             </span>

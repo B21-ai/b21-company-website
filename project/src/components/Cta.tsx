@@ -1,4 +1,4 @@
-import { Corners, kicker, sectionRule, wrap } from "../ui";
+import { kicker, sectionRule, wrap } from "../ui";
 import JoinForm from "./JoinForm";
 
 const Cta = () => {
@@ -6,8 +6,8 @@ const Cta = () => {
     <section id="contact" style={sectionRule}>
       <div style={wrap}>
         <div
-          className="blueprint"
           style={{
+            border: "1px solid var(--color-divider)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -16,7 +16,6 @@ const Cta = () => {
             padding: "clamp(28px,5vw,56px)",
           }}
         >
-          <Corners />
           <div
             style={{
               display: "flex",
